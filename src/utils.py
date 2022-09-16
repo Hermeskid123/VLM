@@ -1,5 +1,13 @@
 import math
+import numpy as np
+import cv2 as cv
+import os
+import matplotlib.pyplot as plt
+import sys
 from random import randint
+
+
+
 def random_with_0_digits():
     num = randint(1, 10**4)
     num_with_zeros = '{:06}'.format(num)
@@ -9,6 +17,7 @@ def random_with_0_digits():
 
 def get_random_images():
     path = "/home/preston/Documents/dataset/train"
+    #change this for your dir 
     os.chdir(path)
     ran = random_with_0_digits()
     random_num = "0"+str(ran)

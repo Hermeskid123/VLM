@@ -7,7 +7,7 @@ import sys
 path = "/home/preston/Documents/dataset/train"
 os.chdir(path)
 #"synthdepth_1_"+str(random_num)+".png"
-imgD ="synthdepth_3_0018190.png"
+imgD ="depth_3_0018190.png"
 imgD = cv.imread(imgD, 0)
 
 plt.imshow(imgD)
