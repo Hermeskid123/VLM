@@ -4,36 +4,43 @@ import cv2 as cv
 import os
 import matplotlib.pyplot as plt
 import sys
-from utils import get_random_images
+from utils import create_image_plots
+import scipy.io
 
-def create_image_plots():
-    depth_name,rgb_name,synth_name = get_random_images()
-    #this picks a random img is the from of name_1_00xxxxx.png 
-    #this fucntion will pefrom a chdir to the path on my computer 
-    # you will need to change that path to suit your dir 
-    #todo later add option to puck name_2 or name_3 
+def show_mat_data(): 
+    mat = scipy.io.loadmat('joint_data.mat')
+    #print(mat)
+    # I got the joint_name joint_uvd and joint_xyz global vars from the print(mat) out put in the consol
+
+    joint_names = mat["joint_names"]
+    joint_uvd = mat["joint_uvd"]
+    joint_xyz = mat["joint_xyz"]
+
+    print("joint_name shape ",joint_names.shape)
+    print("joint_uvd shape ",joint_uvd.shape)
+    print("joint_xyz shape ",joint_xyz.shape)
+    print("\nlist of joint names")
     
-    #reads the path for the img 
-    imgD = cv.imread(depth_name, 0)
-    imgR = cv.imread(rgb_name, 0)
-    imgS = cv.imread(synth_name, 0)
- 
-    #stereo = cv.StereoBM_create(numDisparities = 16,blockSize = 15)
- 
-    #disparity = stereo.compute(imgR, imgD)
- 
+    #print(joint_names[0]) 
+    #use print if you want more than just names
     
-    #sub plot first always 
-    plt.subplot(1, 3, 1)
-    plt.imshow(imgD,'gray')
-    plt.subplot(1, 3, 2)
-    plt.imshow(imgR, 'gray')
-    plt.subplot(1, 3, 3)
-    plt.imshow(imgS, 'gray')
-    plt.show()   
+    for i in joint_names[0]:
+        print(i) 
+
+    print("\nwhat are these vecotrs for?") 
+    print(joint_xyz[0][9422])
+    print(joint_xyz[0][9422])
+    print(joint_xyz[0][9422])
+    #im assuming that its [Kinects][image_number][joint_name][rgb/depth/synth]
+    #kinects means front view side view or top view 
 
 
 def main():
+    path = "/home/preston/Documents/dataset/train"
+    #change this for your dir 
+    os.chdir(path)
+    show_mat_data()
+    print()
     create_image_plots()
 
 if __name__ == "__main__":
