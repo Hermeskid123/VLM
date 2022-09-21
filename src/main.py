@@ -28,9 +28,9 @@ def show_mat_data():
         print(i) 
 
     print("\nwhat are these vecotrs for?") 
-    print(joint_xyz[0][9422])
-    print(joint_xyz[0][9422])
-    print(joint_xyz[0][9422])
+    print(joint_xyz[0][9422][0][0])
+    print(joint_xyz[1][9422][0][1])
+    print(joint_xyz[2][9422][0][2])
     #im assuming that its [Kinects][image_number][joint_name][rgb/depth/synth]
     #kinects means front view side view or top view 
 
