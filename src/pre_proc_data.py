@@ -6,6 +6,8 @@ import shutil
 import tensorflow as tf
 import tensorflow_datasets as tfds
 from PIL import Image
+#This is to move the data from train or test into 3 sub folders RGB D SD 
+
 
 rgb = "rgb_1"
 sd = "synthdepth_1"
@@ -58,4 +60,4 @@ def code_test():
     data_dir = "/home/preston/Documents/dataset/test"
     load_images_from_folder2(data_dir)
 
-code_test()
+#code_test()

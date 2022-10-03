@@ -6,6 +6,21 @@ import matplotlib.pyplot as plt
 import sys
 from random import randint
 
+def get_lables_for_train():
+    data_dir = "/home/preston/Documents/dataset/train/joint_data.mat"
+    mat = scipy.io.loadmat(data_dir)
+    joint_names = mat["joint_names"]
+    joint_uvd = mat["joint_uvd"]
+    joint_xyz = mat["joint_xyz"]
+
+    for i in joint_names[0]:
+        print(i[0])
+
+    x = []
+    count = 0
+    for i in joint_xyz[0]:
+        x.append(i.reshape(1,-1).T)
+    return np.array(x).astype(float)
 
 
 def random_with_0_digits():
