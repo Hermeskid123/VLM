@@ -23,8 +23,8 @@ def load_image( infilename ) :
     return data
 
 
-_shape = (72757,100, 100, 3)
-newsize = (100,100)
+_shape = (72757,120, 160, 3)
+newsize = (160,120)
 all_pics = np.zeros(shape=_shape)
 
 count = 0

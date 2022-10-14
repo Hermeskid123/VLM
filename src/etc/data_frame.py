@@ -54,7 +54,7 @@ def make_data_txt():
     mat = scipy.io.loadmat(data_dir)
     joint_xyz = mat["joint_xyz"]
     
-    f = open("targets.txt", "w")
+    f = open("t/home/preston/Documents/VLM/src/data/targets.txt", "w")
     for i in joint_xyz[0]:
         for item in i.T:
             for j in item:
@@ -62,7 +62,7 @@ def make_data_txt():
             f.write("\n")
 def get_data_txt():
     lines = []
-    with open('targets.txt') as f:
+    with open('/home/preston/Documents/VLM/src/data/targets.txt') as f:
         for line in f:
             txt = line.rstrip()
             lst = txt.split(' ')
@@ -71,6 +71,6 @@ def get_data_txt():
             #tensor = tf.convert_to_tensor(float_lst)
             lines.append(float_lst)
     return lines
-#get_data_frame('/home/preston/Documents/dataset/train2/RGB')
+get_data_frame('/home/preston/Documents/dataset/train2/RGB')
 
 
